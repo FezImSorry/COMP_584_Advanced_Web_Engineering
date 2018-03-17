@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js'></script>
+
+    <script type='text/javascript'>
+   		var socket = io('http://localhost:3000', {path: '/socket.io'}); // connect to server
+
+   		socket.on('fromServer0', function(data) {
+		   	console.log('Server: ' + data.id);
+		   	socket.emit('fromClient0', {id: 'Hi there'});		   	
+		});
+
+		socket.on('fromServer1', function(data) {
+		   	console.log('Server: ' + data.id);
+		   	socket.emit('fromClient1', {id: 'Great'});		   	
+		});
+	</script>
+  </head>
+</html>
